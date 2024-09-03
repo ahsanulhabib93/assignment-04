@@ -26,6 +26,7 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint ./FLASK_STARTERKIT
+
 jobs:
   build:
     runs-on: ubuntu-latest
