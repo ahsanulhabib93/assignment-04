@@ -1,0 +1,4 @@
+- name: Debug PYTHONPATH and List Files
+  run: |
+    echo $PYTHONPATH
+    ls -R
