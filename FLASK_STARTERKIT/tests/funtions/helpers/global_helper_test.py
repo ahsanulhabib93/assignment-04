@@ -1,4 +1,4 @@
-from flask_starterkit.main.helpers import super_complex_function
+from FLASK_STARTERKIT.main.helpers import super_complex_function
 import unittest
 
 
