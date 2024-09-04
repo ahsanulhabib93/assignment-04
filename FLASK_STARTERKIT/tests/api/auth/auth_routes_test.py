@@ -1,7 +1,7 @@
 
 import unittest
 from dotenv import load_dotenv
-from flask_starterkit.main.config import create_app
+from FLASK_STARTERKIT.main.config import create_app
 
 class TestAuthRoutes(unittest.TestCase):
     def setUp(self) -> None:
