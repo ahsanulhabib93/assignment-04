@@ -58,3 +58,28 @@ jobs:
 
       - name: Run tests
         run: docker-compose up unit-test-container
+
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Java (required for SonarCloud)
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+    - name: Cache SonarCloud dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+    - name: Install dependencies for analysis
+      run: |
+        pip install pylint pytest pytest-cov
+    - name: Run SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@v2
+      with:
+        projectBaseDir: .
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
