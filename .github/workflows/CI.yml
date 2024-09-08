@@ -3,7 +3,7 @@ name: Run unit tests
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
     types: [opened, reopened]
 
@@ -109,19 +109,21 @@ jobs:
         git branch -a
         git status
 
-
     - name: Checkout dev branch
       run: |
         git checkout dev
         git pull origin dev  # Ensure the latest changes are pulled
-
-
+    
+    - name: Checkout master branch
+      run: |
+        git checkout master
+        git pull origin master  # Ensure the latest changes are pulled
 
     - name: Merge to dev branch
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git checkout dev  # Make sure the dev branch exists
-        git merge test --no-ff -m "Merging main into dev"
+        git merge master --no-ff -m "Merging main into dev"
         git push origin dev
 
