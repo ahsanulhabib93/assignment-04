@@ -104,10 +104,17 @@ jobs:
     - name: Fetch all branches
       run: |
         git fetch --all
+    - name: Debug branch names
+      run: |
+        git branch -a
+        git status
+
+
     - name: Checkout dev branch
       run: |
         git checkout dev
         git pull origin dev  # Ensure the latest changes are pulled
+
 
     - name: Checkout main branch
       run: |
@@ -115,9 +122,9 @@ jobs:
         git pull origin main  # Ensure the latest changes are pulled
 
 
-    - name: Checkout main branch
+    - name: Checkout master branch
       run: |
-        git checkout main
+        git checkout master
         git pull origin main  # Ensure the latest changes are pulled
 
 
