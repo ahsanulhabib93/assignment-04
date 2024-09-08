@@ -104,6 +104,22 @@ jobs:
     - name: Fetch all branches
       run: |
         git fetch --all
+    - name: Checkout dev branch
+      run: |
+        git checkout dev
+        git pull origin dev  # Ensure the latest changes are pulled
+
+    - name: Checkout main branch
+      run: |
+        git checkout main
+        git pull origin main  # Ensure the latest changes are pulled
+
+
+    - name: Checkout main branch
+      run: |
+        git checkout main
+        git pull origin main  # Ensure the latest changes are pulled
+
 
     - name: Merge to dev branch
       env:
