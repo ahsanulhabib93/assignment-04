@@ -81,8 +81,8 @@ jobs:
       with:
         projectBaseDir: .
         args: >
-          -Dsonar.projectKey=<ahsanulhabib93_assignment-04>
-          -Dsonar.organization=<ahsanulhabib93>
+          -Dsonar.projectKey=ahsanulhabib93_assignment-04
+          -Dsonar.organization=ahsanulhabib93
 
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
